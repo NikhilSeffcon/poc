@@ -1,0 +1,32 @@
+{
+  "name": "zoom-poc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@yudiel/react-qr-scanner": "^1.2.10",
+    "@zoom/meetingsdk": "^3.1.6",
+    "axios": "^1.6.7",
+    "firebase": "^10.8.0",
+    "i": "^0.3.7",
+    "jsonwebtoken": "^9.0.2",
+    "jsrsasign": "^11.1.0",
+    "next": "14.1.0",
+    "npm": "^10.5.0",
+    "react": "^18",
+    "react-audio-voice-recorder": "^2.2.0",
+    "react-dom": "^18",
+    "react-qr-code": "^2.0.12",
+    "react-signature-canvas": "^1.0.6",
+    "speakeasy": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0"
+  }
+}
