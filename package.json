@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@yudiel/react-qr-scanner": "^1.2.10",
     "@zoom/meetingsdk": "^3.1.6",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
