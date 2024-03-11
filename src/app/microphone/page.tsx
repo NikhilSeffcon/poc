@@ -34,6 +34,16 @@ const HookDemo = () => {
     return () => clearTimeout(timer);
   }, [isRecording]);
 
+  const handleDownload = () => {
+    const element = document.createElement("a");
+    element.setAttribute("href", audioURL);
+    element.setAttribute("download", "recorded_audio.wav");
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center p-4 ">
       <div className="w-full max-w-md p-8 bg-white rounded shadow">
@@ -71,6 +81,11 @@ const HookDemo = () => {
           <button onClick={resetRecording} className="px-4 py-2 text-white bg-gray-500 rounded shadow hover:bg-gray-600">
             Reset
           </button>
+          {recordingState === "stopped" && audioFile && (
+            <button onClick={handleDownload} className="px-4 py-2 text-white bg-purple-500 rounded shadow hover:bg-purple-600">
+              Download
+            </button>
+          )}
         </div>
         <div className="mt-4">
           <span className="text-gray-900">Recording State: {recordingState}</span>
