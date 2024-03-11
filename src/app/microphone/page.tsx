@@ -37,7 +37,7 @@ const HookDemo = () => {
   const handleDownload = () => {
     const element = document.createElement("a");
     element.setAttribute("href", audioURL);
-    element.setAttribute("download", "recorded_audio.wav");
+    element.setAttribute("download", "recorded-audio.wav");
     element.style.display = "none";
     document.body.appendChild(element);
     element.click();
