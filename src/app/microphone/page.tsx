@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRecorder } from "react-microphone-recorder";
 
 const HookDemo = () => {
@@ -17,13 +17,29 @@ const HookDemo = () => {
     isRecording,
   } = useRecorder();
 
-  const onButtonClick = () => {
-    // send audio file to server or process it here
-  };
+  const [enableTimer, setEnableTimer] = useState(false);
+
+  useEffect(() => {
+    let timer;
+
+    // console.log(isRecording);
+    if (isRecording && enableTimer) {
+      // Set timer to stop recording after 1 minute (60000 milliseconds)
+      timer = setTimeout(() => {
+        stopRecording();
+      }, 5000);
+    }
+
+    // Clean up the timer when the component unmounts or recording stops
+    return () => clearTimeout(timer);
+  }, [isRecording]);
 
   return (
     <div className="flex flex-col items-center justify-center p-4 ">
       <div className="w-full max-w-md p-8 bg-white rounded shadow">
+        <button onClick={() => setEnableTimer((prev) => !prev)} className="px-4 py-2 text-white bg-blue-500 rounded shadow hover:bg-blue-600">
+          {enableTimer ? "Disable Timer" : "Enable Timer"}
+        </button>
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-gray-900">Audio Level:</span>
@@ -61,7 +77,7 @@ const HookDemo = () => {
           {recordingState === "stopped" && audioFile && (
             <div className="mt-4">
               <span className="text-gray-900">Audio File:</span>
-              <audio src={audioURL} controls className="mt-4"></audio>
+              <audio src={audioURL} preload="auto" controls className="mt-4"></audio>
             </div>
           )}
         </div>
