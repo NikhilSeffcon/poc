@@ -20,6 +20,7 @@
     "react": "^18",
     "react-audio-voice-recorder": "^2.2.0",
     "react-dom": "^18",
+    "react-microphone-recorder": "^1.0.0",
     "react-qr-code": "^2.0.12",
     "react-signature-canvas": "^1.0.6",
     "speakeasy": "^2.0.0"
